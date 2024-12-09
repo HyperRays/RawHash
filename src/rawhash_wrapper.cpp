@@ -122,7 +122,7 @@ std::vector<Alignment> RawHashMapper::map(float* raw_signal, int signal_length) 
         // .su_estimations = NULL,
         // .su_c_estimations = NULL,
         // .su_stop = 0,
-        .map_model = NULL
+        // .map_model = NULL
     };
     ri_tbuf_t *buf = ri_tbuf_init();
     char* read_name = "read123";

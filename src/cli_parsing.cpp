@@ -72,7 +72,7 @@ static ko_longopt_t long_options[] = {
 	// { (char*)"ava",					ko_no_argument, 	  	360 },
 	{ (char*)"r10",					ko_no_argument, 		361 },
 	{ (char*)"rev-query",			ko_no_argument, 		362 },
-	{ (char*)"map-model",			ko_required_argument, 	363 },
+	// { (char*)"map-model",			ko_required_argument, 	363 },
 	{ (char*)"fine-min",			ko_required_argument, 	364 },
 	{ (char*)"fine-max",			ko_required_argument, 	365 },
 	{ (char*)"fine-range",			ko_required_argument, 	366 },
@@ -390,7 +390,7 @@ CLIParsedArgs parse_args(int argc, char *argv[]) {
 			opt.chain_gap_scale = 1.2f;
 		}
 		else if (c == 362) {ipt.flag |= RI_I_REV_QUERY;}// --rev-query, better name: --idx-dont-store-rev, or negate
-		else if (c == 363) {opt.model_map_path = o.arg;}// --map-model
+		// else if (c == 363) {opt.model_map_path = o.arg;}// --map-model
 		else if (c == 364) {ipt.fine_min = atof(o.arg);}// --fine-min
 		else if (c == 365) {ipt.fine_max = atof(o.arg);}// --fine-max
 		else if (c == 366) {ipt.fine_range = atof(o.arg);}// --fine-range
