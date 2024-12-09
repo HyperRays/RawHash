@@ -24,6 +24,8 @@ function(setup_slow5)
                 BUILD_ALWAYS 1 # Rebuild if local checkout is updated
                 BINARY_DIR ${SLOW5_DIR}
                 SOURCE_DIR ${SLOW5_SOURCE_DIR}
+                CMAKE_ARGS
+                    -DSLOW5_ENABLE_MT=1
                 INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_directory ${SLOW5_SOURCE_DIR}/include ${SLOW5_DIR}/include
                              && ${CMAKE_COMMAND} -E make_directory ${SLOW5_DIR}/lib
                              && ${CMAKE_COMMAND} -E rename ${SLOW5_DIR}/libslow5.so ${SLOW5_DIR}/lib/libslow5.so
