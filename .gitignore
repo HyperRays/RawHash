@@ -90,5 +90,4 @@ test/evaluation/read_mapping/*parameters*.txt
 test/evaluation/read_mapping/*parameters/
 test/evaluation/read_mapping/s_modify.py
 
-extern/tensorflow/tflite_build/
 test/evaluation/read_mapping/*.features
