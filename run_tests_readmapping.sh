@@ -9,6 +9,8 @@
 
 ### Read Mapping
 
+alias rawhash2='bin/rawhash2'
+
 # ── Configuration: one entry per dataset ──────────────────────────
 # Format: "label:path"
 DATASETS=(
