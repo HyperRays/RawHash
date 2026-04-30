@@ -9,7 +9,7 @@
 
 ### Read Mapping
 
-alias rawhash2='bin/rawhash2'
+export PATH="./bin:$PATH"
 
 # ── Configuration: one entry per dataset ──────────────────────────
 # Format: "label:path"
