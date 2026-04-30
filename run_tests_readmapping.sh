@@ -61,7 +61,7 @@ for entry in "${DATASETS[@]}"; do
 
         START=$(date +%s)
 
-        bash ./scripts/run_rawhash2.sh \
+        bash ./test/scripts/run_rawhash2.sh \
             "${OUTDIR}" \
             "${PREFIX}" \
             "${FAST5}" \
