@@ -62,8 +62,8 @@ for entry in "${DATASETS[@]}"; do
         echo "  Running with ${THREAD} threads..."
 
         START=$(date +%s)
-        
-        echo ./test/scripts/run_rawhash2.sh \
+
+        bash ./test/scripts/run_rawhash2.sh \
             "${OUTDIR}" \
             "${PREFIX}" \
             "${FAST5}" \
@@ -74,18 +74,6 @@ for entry in "${DATASETS[@]}"; do
             "${PARAMS}" \
             > "${OUTDIR}/${PREFIX}.out" \
             2> "${OUTDIR}/${PREFIX}.err"
-
-        # bash ./test/scripts/run_rawhash2.sh \
-        #     "${OUTDIR}" \
-        #     "${PREFIX}" \
-        #     "${FAST5}" \
-        #     "${REF}" \
-        #     "${PORE}" \
-        #     "${PRESET}" \
-        #     "${THREAD}" \
-        #     "${PARAMS}" \
-        #     > "${OUTDIR}/${PREFIX}.out" \
-        #     2> "${OUTDIR}/${PREFIX}.err"
 
         END=$(date +%s)
         ELAPSED=$((END - START))
