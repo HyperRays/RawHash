@@ -32,7 +32,7 @@ DATASETS=(
 )
 
 SWEEP="${SWEEP:-128,64,32,16}"
-OUTDIR="./rawhash2_d5"
+OUTDIR="./rawhash2_new_runs"
 mkdir -p "${OUTDIR}"
 
 LOG="${OUTDIR}/benchmark.csv"
