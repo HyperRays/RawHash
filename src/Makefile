@@ -80,7 +80,7 @@ ifeq ($(NOPOD5),1)
 	CPPFLAGS+=-DNPOD5RH=1
 else
 	INCLUDES+=-I${POD5_INCLUDE_DIR}
-	LIBS+=-L${WORKDIR}/zstd/lib/ ${POD5_LIBRARIES} -lzstd
+	LIBS+=${WORKDIR}/zstd/lib/libzstd.a ${POD5_LIBRARIES}
 endif
 
 #pass NOHDF5=1 to make to disable compiling with HDF5
@@ -145,7 +145,7 @@ help: ##Show help
 	
 check_zstd:
 	@if [ "$(NOPOD5)" != "1" ]; then \
-		[ -f "${WORKDIR}/zstd/lib/libzstd.so" ] || { echo "ZSTD library not found" >&2; exit 1; }; \
+		[ -f "${WORKDIR}/zstd/lib/libzstd.so" ] || [ -f "${WORKDIR}/zstd/lib/libzstd.dylib" ] || [ -f "${WORKDIR}/zstd/lib/libzstd.a" ] || { echo "ZSTD library not found" >&2; exit 1; }; \
 	fi
 
 check_hdf5:
@@ -182,7 +182,7 @@ hdf5:
 
 slow5:
 	@if [ "$(NOSLOW5)" != "1" ] && [ "$(SLOW5_COMPILE)" != "0" ]; then \
-		make -C ${SLOW5_DIR} slow5_mt=1 zstd=1; \
+		make -C ${SLOW5_DIR} slow5_mt=1 zstd=1 zstd_local=${WORKDIR}/zstd/lib LDFLAGS="-lm -lz -lzstd -lpthread -L${WORKDIR}/zstd/lib"; \
 	fi
 
 pod5: check_zstd
