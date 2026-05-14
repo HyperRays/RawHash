@@ -16,7 +16,7 @@ make -j
 rawhash2 --version
 
 ### Read Mapping
-
+export HDF5_PLUGIN_PATH=/home/skuvalekar/downloads/RawHash/ont-vbz-hdf-plugin-1.0.1-Linux/usr/local/hdf5/lib/plugin
 export PATH="./bin:$PATH"
 
 # ── Configuration: one entry per dataset ──────────────────────────
