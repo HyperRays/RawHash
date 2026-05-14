@@ -11,5 +11,11 @@ PRESETX=$6 #Default preset of rawhash2 for the run (e.g., viral)
 THREAD=$7 #Number of threads to use
 PARAMS=$8 #(optional -- you can keep it empty) custom parameters to set on top of the default parameters
 
-/usr/bin/time -vpo "${OUTDIR}/${PREFIX}_rawhash2_index_${PRESETX}.time" rawhash2 -x ${PRESETX} -t ${THREAD} -p "${PORE}" -d "${OUTDIR}/${PREFIX}_rawhash2_${PRESETX}.ind" ${PARAMS} ${REF}
-/usr/bin/time -vpo "${OUTDIR}/${PREFIX}_rawhash2_map_${PRESETX}.time" rawhash2 -x ${PRESETX} -t ${THREAD} -o "${OUTDIR}/${PREFIX}_rawhash2_${PRESETX}.paf" ${PARAMS} "${OUTDIR}/${PREFIX}_rawhash2_${PRESETX}.ind" ${SIGNALS}
+echo "Got pore model $PORE"
+set -x
+/usr/bin/time -vpo "${OUTDIR}/${PREFIX}_rawhash2_index_${PRESETX}.time" /mnt/galactica/skuvalekar/downloads/RawHash/bin/rawhash2 -x ${PRESETX} -t ${THREAD} -p $PORE -d "${OUTDIR}/${PREFIX}_rawhash2_${PRESETX}.ind" ${PARAMS} ${REF}
+/usr/bin/time -vpo "${OUTDIR}/${PREFIX}_rawhash2_map_${PRESETX}.time" /mnt/galactica/skuvalekar/downloads/RawHash/bin/rawhash2 -x ${PRESETX} -t ${THREAD} -o "${OUTDIR}/${PREFIX}_rawhash2_${PRESETX}.paf" ${PARAMS} "${OUTDIR}/${PREFIX}_rawhash2_${PRESETX}.ind" ${SIGNALS}
+which rawhash2
+type rawhash2
+file $(which rawhash2)
+set +x
