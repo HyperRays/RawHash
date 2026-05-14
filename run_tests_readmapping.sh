@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --job-name=rh2_rest
+#SBATCH --job-name=rh2_new_run
 #SBATCH --output=rh2-%j.out
 #SBATCH --error=rh2-%j.err
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=128
-#SBATCH --mem=200G
+#SBATCH --mem=300G
 #SBATCH --time=1-00:00:00
 #SBATCH --partition=bio_part
 
@@ -22,16 +22,16 @@ export PATH="./bin:$PATH"
 # ── Configuration: one entry per dataset ──────────────────────────
 # Format: "label:path"
 DATASETS=(
-#"d1_sars-cov-2_r94:/mnt/galactica/skuvalekar/genome_data/test/data/d1_sars-cov-2_r94"
-#"d2_ecoli_r94:/mnt/galactica/skuvalekar/genome_data/test/data/d2_ecoli_r94"
-#"d3_yeast_r94:/mnt/galactica/skuvalekar/genome_data/test/data/d3_yeast_r94"
-#"d4_green_algae_r94:/mnt/galactica/skuvalekar/genome_data/test/data/d4_green_algae_r94"
+"d1_sars-cov-2_r94:/mnt/galactica/skuvalekar/genome_data/test/data/d1_sars-cov-2_r94"
+"d2_ecoli_r94:/mnt/galactica/skuvalekar/genome_data/test/data/d2_ecoli_r94"
+"d3_yeast_r94:/mnt/galactica/skuvalekar/genome_data/test/data/d3_yeast_r94"
+"d4_green_algae_r94:/mnt/galactica/skuvalekar/genome_data/test/data/d4_green_algae_r94"
 "d5_human_na12878_r94:/mnt/galactica/skuvalekar/genome_data/test/data/d5_human_na12878_r94"
-#"d6_ecoli_r104:/mnt/galactica/skuvalekar/genome_data/test/data/d6_ecoli_r104"
-#"d7_saureus_r104:/mnt/galactica/skuvalekar/genome_data/test/data/d7_saureus_r104"
+"d6_ecoli_r104:/mnt/galactica/skuvalekar/genome_data/test/data/d6_ecoli_r104"
+"d7_saureus_r104:/mnt/galactica/skuvalekar/genome_data/test/data/d7_saureus_r104"
 )
 
-SWEEP="${SWEEP:-128}"
+SWEEP="${SWEEP:-128,64,32,16}"
 OUTDIR="./rawhash2_d5"
 mkdir -p "${OUTDIR}"
 
