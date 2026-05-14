@@ -80,7 +80,7 @@ ifeq ($(NOPOD5),1)
 	CPPFLAGS+=-DNPOD5RH=1
 else
 	INCLUDES+=-I${POD5_INCLUDE_DIR}
-	LIBS+=${WORKDIR}/zstd/lib/libzstd.a ${POD5_LIBRARIES}
+	LIBS+=${POD5_LIBRARIES}
 endif
 
 #pass NOHDF5=1 to make to disable compiling with HDF5
@@ -89,7 +89,7 @@ ifeq ($(NOHDF5),1)
 	CPPFLAGS+=-DNHDF5RH=1
 else
 	INCLUDES+=-I${HDF5_INCLUDE_DIR}
-	LIBS+=${HDF5_LIB_DIR}/lib${HDF5_LIB}.a 
+	LIBS+=${HDF5_LIB_DIR}/lib${HDF5_LIB}.a
 endif
 
 #pass NOSLOW5=1 to make to disable compiling with SLOW5
@@ -101,7 +101,7 @@ else
 	LIBS+=${SLOW5_LIB_DIR}/libslow5.a
 endif
 
-LIBS+=-lm -lz -ldl 
+LIBS+=${WORKDIR}/zstd/lib/libzstd.a -lm -lz -ldl
 
 PROG=rawhash2
 
