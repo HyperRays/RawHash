@@ -7,8 +7,9 @@
 #SBATCH --mem=300G
 #SBATCH --time=1-00:00:00
 
-make clean
-rm -rf bin/*
+export TMPDIR="${HOME}/tmp_build"
+mkdir -p "${TMPDIR}"
+
 make -j
 
 export HDF5_PLUGIN_PATH=/home/skuvalekar/downloads/RawHash/ont-vbz-hdf-plugin-1.0.1-Linux/usr/local/hdf5/lib/plugin
@@ -39,3 +40,5 @@ echo "=== Rawsamble: all-vs-all overlapping ==="
 
 echo "=== Done ==="
 echo "Overlap PAF: ${OUTDIR}/${PREFIX}_rawsamble_${PRESET}.paf"
+
+rm -rf "${TMPDIR}"
