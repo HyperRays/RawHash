@@ -6,7 +6,6 @@
 #SBATCH --cpus-per-task=256
 #SBATCH --mem=300G
 #SBATCH --time=1-00:00:00
-#SBATCH --partition=bio_part
 
 make clean
 rm -rf bin/*
